@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.vf.sincerityfinance"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+//    还没决定用不用databinding先放着吧
+//    buildFeatures {
+//        dataBinding = true
+//    }
+}
+
+dependencies {
+    //  建项目就带的好像是kotlin的核心包
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    //  主题布局相关的
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    //  基于 Kotlin + Jetpack + Coroutines + Retrofit 封装的网络请求框架
+    implementation 'com.github.leavesC:ReactiveHttp:1.0.0'
+    //  Retrofit2依赖
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    //  解析工具Gson（大家都用这个）
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    //  jetpack的一大堆
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    //  网络请求调试利器 （不知道是啥听起来很牛逼就放进来了（希望有用！））
+    debugImplementation 'com.github.leavesC.Monitor:monitor:1.1.3'
+    releaseImplementation 'com.github.leavesC.Monitor:monitor-no-op:1.1.3'
+    //  腾讯的mmkv缓存 替代sp的
+    implementation 'com.tencent:mmkv:1.0.22'
+    //  kotlin协程（官方的不知道为啥还得引一下🤷‍♂️）
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+    //  git上找的快速开发框架（主要想找base类用😄）
+    implementation 'me.hegj:JetpackMvvm:1.2.1'
+    //  这几个也是建项目就带的 😓
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
