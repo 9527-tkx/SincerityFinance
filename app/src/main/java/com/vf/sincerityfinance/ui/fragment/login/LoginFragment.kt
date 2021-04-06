@@ -1,4 +1,4 @@
-package com.vf.sincerityfinance.ui.fragment
+package com.vf.sincerityfinance.ui.fragment.login
 
 import android.os.Bundle
 import android.widget.CompoundButton
@@ -8,12 +8,10 @@ import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentLoginBinding
 import com.vf.sincerityfinance.utils.CacheUtil
-import com.vf.sincerityfinance.viewmodel.LoginRegisterViewModel
-import com.vf.sincerityfinance.viewmodel.LoginViewModel
-import com.vf.sincerityfinance.viewmodel.RequestLoginRegisterViewModel
+import com.vf.sincerityfinance.viewmodel.vm.LoginRegisterViewModel
+import com.vf.sincerityfinance.viewmodel.request.RequestLoginRegisterViewModel
 import com.vf.sincerityfinance.weight.ext.*
 import kotlinx.android.synthetic.main.include_toolbar.*
-import me.hgj.jetpackmvvm.ext.navigateAction
 import me.hgj.jetpackmvvm.ext.parseState
 
 /**
@@ -79,7 +77,7 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
 
         fun goRegister() {
             hideSoftKeyboard(activity)
-//            nav().navigateAction(R.id.action_loginFragment_to_registerFrgment)
+            nav().navigateAction(R.id.action_loginFragment_to_registerFrgment)
         }
 
         var onCheckedChangeListener =

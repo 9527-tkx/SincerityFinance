@@ -5,10 +5,10 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.vf.sincerityfinance.viewmodel.LoginRegisterViewModel" />
+            type="com.vf.sincerityfinance.viewmodel.vm.LoginRegisterViewModel" />
         <variable
             name="click"
-            type="com.vf.sincerityfinance.ui.fragment.RegisterFragment.ProxyClick" />
+            type="com.vf.sincerityfinance.ui.fragment.login.RegisterFragment.ProxyClick" />
     </data>
 
     <LinearLayout

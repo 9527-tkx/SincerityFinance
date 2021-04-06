@@ -1,4 +1,4 @@
-package com.vf.sincerityfinance.ui.fragment
+package com.vf.sincerityfinance.ui.fragment.login
 
 import android.os.Bundle
 import android.widget.CompoundButton
@@ -6,8 +6,8 @@ import androidx.fragment.app.viewModels
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentRegisterBinding
-import com.vf.sincerityfinance.viewmodel.LoginRegisterViewModel
-import com.vf.sincerityfinance.viewmodel.RequestLoginRegisterViewModel
+import com.vf.sincerityfinance.viewmodel.vm.LoginRegisterViewModel
+import com.vf.sincerityfinance.viewmodel.request.RequestLoginRegisterViewModel
 import com.vf.sincerityfinance.weight.ext.initClose
 import com.vf.sincerityfinance.weight.ext.showMessage
 import kotlinx.android.synthetic.main.include_toolbar.*

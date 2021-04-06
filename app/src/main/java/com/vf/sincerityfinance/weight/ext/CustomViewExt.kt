@@ -22,6 +22,9 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
 import com.vf.sincerityfinance.R
+import com.vf.sincerityfinance.ui.fragment.home.HomeFragment
+import com.vf.sincerityfinance.ui.fragment.me.MeFragment
+import com.vf.sincerityfinance.ui.fragment.project.ProjectFragment
 import com.vf.sincerityfinance.utils.SettingUtil
 import com.vf.sincerityfinance.weight.recyclerView.DefineLoadMoreView
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
@@ -304,38 +307,32 @@ fun ViewPager2.init(
     return this
 }
 
-//fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
-//    //是否可滑动
-//    this.isUserInputEnabled = false
-//    this.offscreenPageLimit = 5
-//    //设置适配器
-//    adapter = object : FragmentStateAdapter(fragment) {
-//        override fun createFragment(position: Int): Fragment {
-//            when (position) {
-//                0 -> {
-//                    return HomeFragment()
-//                }
-//                1 -> {
-//                    return ProjectFragment()
-//                }
-//                2 -> {
-//                    return TreeArrFragment()
-//                }
-//                3 -> {
-//                    return PublicNumberFragment()
-//                }
-//                4 -> {
-//                    return MeFragment()
-//                }
-//                else -> {
-//                    return HomeFragment()
-//                }
-//            }
-//        }
-//        override fun getItemCount() = 5
-//    }
-//    return this
-//}
+fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
+    //是否可滑动
+    this.isUserInputEnabled = false
+    this.offscreenPageLimit = 3
+    //设置适配器
+    adapter = object : FragmentStateAdapter(fragment) {
+        override fun createFragment(position: Int): Fragment {
+            when (position) {
+                0 -> {
+                    return HomeFragment()
+                }
+                1 -> {
+                    return ProjectFragment()
+                }
+                2 -> {
+                    return MeFragment()
+                }
+                else -> {
+                    return HomeFragment()
+                }
+            }
+        }
+        override fun getItemCount() = 3
+    }
+    return this
+}
 
 fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): BottomNavigationViewEx {
     enableAnimation(true)

@@ -1,4 +1,4 @@
-package com.vf.sincerityfinance.viewmodel
+package com.vf.sincerityfinance.viewmodel.vm
 
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 
@@ -9,7 +9,7 @@ import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
  *
  * @author: tkx
  *
- * @create: 2021-04-01 18:37
+ * @create: 2021-04-06 16:55
  **/
-class LoginViewModel:BaseViewModel() {
+class ProjectViewModel : BaseViewModel() {
 }

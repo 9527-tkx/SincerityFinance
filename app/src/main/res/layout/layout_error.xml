@@ -10,7 +10,7 @@
         android:id="@+id/loading_errorimg"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/load_error" />
+        android:src="@drawable/brvah_sample_footer_loading" />
 
     <TextView
         android:layout_width="wrap_content"

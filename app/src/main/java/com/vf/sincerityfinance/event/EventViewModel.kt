@@ -2,7 +2,6 @@ package me.hgj.jetpackmvvm.demo.app.event
 
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.callback.livedata.event.EventLiveData
-import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 
 /**
  * 作者　: hegaojian
@@ -12,7 +11,6 @@ import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 class EventViewModel : BaseViewModel() {
 
     //全局收藏，在任意一个地方收藏或取消收藏，监听该值的界面都会收到消息
-    val collectEvent = EventLiveData<CollectBus>()
 
     //分享文章通知
     val shareArticleEvent = EventLiveData<Boolean>()

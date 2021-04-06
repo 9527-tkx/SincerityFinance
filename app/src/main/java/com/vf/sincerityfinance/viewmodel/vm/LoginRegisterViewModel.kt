@@ -1,4 +1,4 @@
-package com.vf.sincerityfinance.viewmodel
+package com.vf.sincerityfinance.viewmodel.vm
 
 import android.view.View
 import androidx.databinding.ObservableInt

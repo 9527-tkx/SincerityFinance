@@ -1,4 +1,4 @@
-package com.vf.sincerityfinance.viewmodel
+package com.vf.sincerityfinance.viewmodel.request
 
 import androidx.lifecycle.MutableLiveData
 import com.vf.sincerityfinance.bean.UserInfo

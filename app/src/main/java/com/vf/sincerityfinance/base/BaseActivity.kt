@@ -14,7 +14,7 @@ import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
  *
  * @create: 2021-04-01 17:29
  **/
-class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbActivity<VM, DB>() {
+open class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbActivity<VM, DB>() {
 
     /**
      * 创建liveData观察者
