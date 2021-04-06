@@ -14,7 +14,6 @@ import me.hgj.jetpackmvvm.demo.app.event.EventViewModel
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.EmptyCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.ErrorCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.LoadingCallback
-import me.hgj.jetpackmvvm.ext.getAppViewModel
 import me.hgj.jetpackmvvm.ext.util.jetpackMvvmLog
 import me.hgj.jetpackmvvm.ext.util.logd
 
