@@ -20,6 +20,8 @@ import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
  * @create: 2021-04-01 17:40
  **/
 abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDbFragment<VM, DB>() {
+    protected var mPictureList: MutableList<Int> = ArrayList()
+
 
     /**
      * 当前Fragment绑定的视图布局
@@ -73,5 +75,14 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDb
      */
     override fun lazyLoadTime(): Long {
         return 300
+    }
+
+    protected fun getPicList(count:Int): MutableList<Int> {
+        mPictureList.clear()
+        for (i in 1..count) {
+            val drawable = resources.getIdentifier("frame_$i", "drawable", context?.packageName)
+            mPictureList.add(drawable)
+        }
+        return mPictureList;
     }
 }

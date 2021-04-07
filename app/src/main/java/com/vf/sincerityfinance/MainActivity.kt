@@ -12,8 +12,8 @@ import com.tencent.bugly.beta.Beta
 import com.vf.sincerityfinance.base.BaseActivity
 import com.vf.sincerityfinance.databinding.ActivityMainBinding
 import com.vf.sincerityfinance.utils.StatusBarUtil
+import com.vf.sincerityfinance.viewmodel.appViewModel
 import com.vf.sincerityfinance.viewmodel.vm.MainViewModel
-import com.vf.sincerityfinance.weight.ext.appViewModel
 import me.hgj.jetpackmvvm.network.manager.NetState
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {

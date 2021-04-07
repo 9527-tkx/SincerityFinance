@@ -19,4 +19,19 @@
     <color name="chinaHoliDay">#e10015</color>
     <color name="purple_200">#e10015</color>
 
+    <color name="red">#FF5252</color>
+
+    <color name="transparent_red">#88FF5252</color>
+    <color name="white_alpha_75">#BFFFFFFF</color>
+    <color name="white_alpha_45">#6FFFFFFF</color>
+
+    <color name="tab_normal_text">#000000</color>
+    <color name="tab_selected_text">#000000</color>
+    <color name="line_color">#DCDCDC</color>
+
+    <color name="red_checked_color">#FF4C39</color>
+    <color name="red_normal_color">#935656</color>
+    <color name="tkx_like">#FF4B3A</color>
+    <color name="gray_1">#F2F2F2</color>
+
 </resources>

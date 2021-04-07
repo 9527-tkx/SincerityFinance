@@ -2,6 +2,7 @@ package com.vf.sincerityfinance.weight.ext
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
@@ -33,6 +34,10 @@ import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.EmptyCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.ErrorCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.LoadingCallback
 import me.hgj.jetpackmvvm.ext.util.toHtml
+import net.lucode.hackware.magicindicator.MagicIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
 
 
 /**
@@ -151,16 +156,16 @@ fun RecyclerView.initFloatBtn(floatbtn: FloatingActionButton) {
     }
 }
 
-//初始化 SwipeRefreshLayout
-fun SwipeRefreshLayout.init(onRefreshListener: () -> Unit) {
-    this.run {
-        setOnRefreshListener {
-            onRefreshListener.invoke()
-        }
-        //设置主题颜色
-        setColorSchemeColors(SettingUtil.getColor(appContext))
-    }
-}
+////初始化 SwipeRefreshLayout
+//fun SwipeRefreshLayout.init(onRefreshListener: () -> Unit) {
+//    this.run {
+//        setOnRefreshListener {
+//            onRefreshListener.invoke()
+//        }
+//        //设置主题颜色
+//        setColorSchemeColors(SettingUtil.getColor(appContext))
+//    }
+//}
 
 /**
  * 初始化普通的toolbar 只设置标题
@@ -215,15 +220,15 @@ fun setUiTheme(color: Int, vararg anyList: Any?) {
 }
 
 //设置适配器的列表动画
-fun BaseQuickAdapter<*, *>.setAdapterAnimation(mode: Int) {
-    //等于0，关闭列表动画 否则开启
-    if (mode == 0) {
-        this.animationEnable = false
-    } else {
-        this.animationEnable = true
-        this.setAnimationWithDefault(BaseQuickAdapter.AnimationType.values()[mode - 1])
-    }
-}
+//fun BaseQuickAdapter<*, *>.setAdapterAnimation(mode: Int) {
+//    //等于0，关闭列表动画 否则开启
+//    if (mode == 0) {
+//        this.animationEnable = false
+//    } else {
+//        this.animationEnable = true
+//        this.setAnimationWithDefault(BaseQuickAdapter.AnimationType.values()[mode - 1])
+//    }
+//}
 
 //fun MagicIndicator.bindViewPager2(
 //    viewPager: ViewPager2,
@@ -336,8 +341,8 @@ fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
 
 fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): BottomNavigationViewEx {
     enableAnimation(true)
-    enableShiftingMode(false)
-    enableItemShiftingMode(true)
+    enableShiftingMode(true)
+    enableItemShiftingMode(false)
     itemIconTintList = SettingUtil.getColorStateList(SettingUtil.getColor(appContext))
     itemTextColor = SettingUtil.getColorStateList(appContext)
     setTextSize(12F)

@@ -1,5 +1,7 @@
-package com.vf.sincerityfinance.weight.ext
+package com.vf.sincerityfinance.viewmodel
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.multidex.MultiDex
 import cat.ereza.customactivityoncrash.config.CaocConfig
 import com.kingja.loadsir.callback.SuccessCallback
@@ -7,6 +9,8 @@ import com.kingja.loadsir.core.LoadSir
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
+import com.vf.sincerityfinance.ui.activity.ErrorActivity
+import com.vf.sincerityfinance.weight.ext.getProcessName
 import me.hgj.jetpackmvvm.BuildConfig
 import me.hgj.jetpackmvvm.base.BaseApp
 import me.hgj.jetpackmvvm.demo.app.event.AppViewModel
@@ -18,9 +22,9 @@ import me.hgj.jetpackmvvm.ext.util.jetpackMvvmLog
 import me.hgj.jetpackmvvm.ext.util.logd
 
 /**
- * 作者　: hegaojian
- * 时间　: 2019/12/23
- * 描述　:
+ * 作者　: tkx
+ * 时间　: 2021/4/7
+ * 描述　: application
  */
 
 //Application全局的ViewModel，里面存放了一些账户信息，基本配置信息等
@@ -37,6 +41,7 @@ class App : BaseApp() {
         lateinit var appViewModelInstance: AppViewModel
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate() {
         super.onCreate()
         MMKV.initialize(this.filesDir.absolutePath + "/mmkv")
@@ -78,7 +83,7 @@ class App : BaseApp() {
             .trackActivities(true) //是否必须跟踪用户访问的活动及其生命周期调用 default: false
             .minTimeBetweenCrashesMs(2000) //应用程序崩溃之间必须经过的时间 default: 3000
 //            .restartActivity(WelcomeActivity::class.java) // 重启的activity
-//            .errorActivity(ErrorActivity::class.java) //发生错误跳转的activity
+            .errorActivity(ErrorActivity::class.java) //发生错误跳转的activity
             .apply()
     }
 

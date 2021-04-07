@@ -8,6 +8,7 @@ import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentLoginBinding
 import com.vf.sincerityfinance.utils.CacheUtil
+import com.vf.sincerityfinance.viewmodel.appViewModel
 import com.vf.sincerityfinance.viewmodel.vm.LoginRegisterViewModel
 import com.vf.sincerityfinance.viewmodel.request.RequestLoginRegisterViewModel
 import com.vf.sincerityfinance.weight.ext.*
@@ -37,9 +38,6 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
         }
     }
 
-    override fun lazyLoadData() {
-        super.lazyLoadData()
-    }
 
 
     override fun createObserver() {

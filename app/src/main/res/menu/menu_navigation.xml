@@ -3,17 +3,17 @@
     <item
         android:id="@+id/menu_main"
         android:checked="true"
-        android:icon="@drawable/md_btn_selected_dark"
+        android:icon="@drawable/icon_monitor_share"
         android:title="@string/bottom_name1" />
 
     <item
         android:id="@+id/menu_project"
-        android:icon="@drawable/brvah_sample_footer_loading_progress"
+        android:icon="@android:drawable/ic_dialog_alert"
         android:title="@string/bottom_name2" />
 
     <item
         android:id="@+id/menu_me"
-        android:icon="@drawable/md_btn_selected"
+        android:icon="?attr/homeAsUpIndicator"
         android:title="@string/bottom_name3" />
 
 

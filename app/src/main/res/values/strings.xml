@@ -1,10 +1,8 @@
 <resources>
-    <string name="app_name">鸡你太美</string>
+    <string name="app_name">诚意财务</string>
     <string name="bottom_name1">首页</string>
     <string name="bottom_name2">功能</string>
     <string name="bottom_name3">我的</string>
-    <string name="bottom_name4">公众号</string>
-    <string name="bottom_name5">我的</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="done">完成</string>

@@ -5,9 +5,13 @@ import androidx.lifecycle.Observer
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentMainBinding
+import com.vf.sincerityfinance.viewmodel.appViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 import com.vf.sincerityfinance.viewmodel.vm.MainViewModel
-import com.vf.sincerityfinance.weight.ext.*
+import com.vf.sincerityfinance.weight.ext.init
+import com.vf.sincerityfinance.weight.ext.initMain
+import com.vf.sincerityfinance.weight.ext.interceptLongClick
+import com.vf.sincerityfinance.weight.ext.setUiTheme
 
 /**
  * 时间　: 2021
