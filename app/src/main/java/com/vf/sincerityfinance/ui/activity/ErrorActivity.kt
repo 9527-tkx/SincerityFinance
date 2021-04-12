@@ -23,9 +23,9 @@ import me.hgj.jetpackmvvm.ext.view.clickNoRepeat
 
 
 /**
- * 作者　: hegaojian
- * 时间　: 2020/3/12
- * 描述　:
+ * 作者　: tkx
+ * 时间　: 2021/3/12
+ * 描述　: 崩溃时弹出的页面
  */
 class ErrorActivity : BaseActivity<BaseViewModel, ActivityErrorBinding>() {
 

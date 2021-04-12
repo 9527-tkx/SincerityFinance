@@ -7,7 +7,7 @@ import com.zhpan.bannerview.BaseViewHolder;
 
 /**
  * @program: SincerityFinance
- * @description: banner的adapter
+ * @description: 功能页面banner的adapter
  * @author: tkx
  * @create: 2021-04-07 18:08
  **/

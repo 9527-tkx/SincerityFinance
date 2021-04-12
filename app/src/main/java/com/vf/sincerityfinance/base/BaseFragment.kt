@@ -77,12 +77,5 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDb
         return 300
     }
 
-    protected fun getPicList(count:Int): MutableList<Int> {
-        mPictureList.clear()
-        for (i in 1..count) {
-            val drawable = resources.getIdentifier("frame_$i", "drawable", context?.packageName)
-            mPictureList.add(drawable)
-        }
-        return mPictureList;
-    }
+
 }

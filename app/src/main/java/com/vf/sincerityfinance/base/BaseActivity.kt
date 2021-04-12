@@ -2,13 +2,14 @@ package com.vf.sincerityfinance.base
 
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
+import com.gyf.immersionbar.ImmersionBar
 import me.hgj.jetpackmvvm.base.activity.BaseVmDbActivity
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 
 /**
  * @program: SincerityFinance
  *
- * @description:
+ * @description: baseActivity （可能还会加东西）
  *
  * @author: tkx
  *
@@ -31,7 +32,7 @@ open class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbActivity<
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
+        TODO()
     }
 
     override fun layoutId(): Int {
@@ -43,4 +44,5 @@ open class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbActivity<
     override fun showLoading(message: String) {
         TODO("Not yet implemented")
     }
+
 }

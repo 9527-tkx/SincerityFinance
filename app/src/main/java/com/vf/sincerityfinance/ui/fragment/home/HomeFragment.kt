@@ -14,9 +14,9 @@ import kotlinx.android.synthetic.main.include_recyclerview.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 /**
- * 作者　: hegaojian
- * 时间　: 2019/12/27
- * 描述　:
+ * 作者　: tkx
+ * 时间　: 2021/4/8
+ * 描述　: 首页fragment
  */
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 

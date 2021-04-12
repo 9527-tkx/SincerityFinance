@@ -15,6 +15,7 @@ import com.blankj.utilcode.util.Utils
 import com.kingja.loadsir.core.LoadService
 import com.tencent.mmkv.MMKV
 import com.vf.sincerityfinance.R
+import com.vf.sincerityfinance.utils.SettingUtil.getColor
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.LoadingCallback
 import java.lang.reflect.InvocationTargetException
 import kotlin.math.roundToInt
@@ -67,6 +68,18 @@ object SettingUtil {
         val setting = PreferenceManager.getDefaultSharedPreferences(context)
         return setting.getBoolean("top", true)
     }
+
+    fun getPicList(count:Int): MutableList<Int> {
+        var mPictureList:MutableList<Int> = ArrayList()
+        mPictureList.clear()
+        mPictureList.add(R.drawable.frame_1)
+        mPictureList.add(R.drawable.frame_2)
+        mPictureList.add(R.drawable.frame_3)
+        mPictureList.add(R.drawable.frame_4)
+        mPictureList.add(R.drawable.frame_5)
+        return mPictureList;
+    }
+
 
     fun getColorStateList(context: Context): ColorStateList {
         val colors = intArrayOf(getColor(context), ContextCompat.getColor(context, R.color.colorGray))

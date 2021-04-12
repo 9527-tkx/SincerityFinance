@@ -8,6 +8,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.blankj.utilcode.util.ToastUtils
+import com.gyf.immersionbar.ImmersionBar
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.tencent.bugly.beta.Beta
 import com.vf.sincerityfinance.base.BaseActivity
 import com.vf.sincerityfinance.databinding.ActivityMainBinding
@@ -15,6 +17,12 @@ import com.vf.sincerityfinance.utils.StatusBarUtil
 import com.vf.sincerityfinance.viewmodel.appViewModel
 import com.vf.sincerityfinance.viewmodel.vm.MainViewModel
 import me.hgj.jetpackmvvm.network.manager.NetState
+
+/**
+ * 主activity 就这一个activity其他fragment都靠它
+ * @property exitTime Long
+ * @author tkx
+ */
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
@@ -24,7 +32,11 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         //进入首页检查更新
         Beta.checkUpgrade(false, true)
+        //沉浸式
+        QMUIStatusBarHelper.translucent(this)
+        QMUIStatusBarHelper.setStatusBarLightMode(this)
 
+        // 后退判断
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val nav = Navigation.findNavController(this@MainActivity, R.id.host_fragment)

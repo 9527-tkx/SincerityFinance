@@ -12,32 +12,32 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.chad.library.adapter.base.BaseQuickAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
 import com.vf.sincerityfinance.R
+import com.vf.sincerityfinance.adapter.ViewBindingSampleAdapter
 import com.vf.sincerityfinance.ui.fragment.home.HomeFragment
 import com.vf.sincerityfinance.ui.fragment.me.MeFragment
 import com.vf.sincerityfinance.ui.fragment.project.ProjectFragment
 import com.vf.sincerityfinance.utils.SettingUtil
 import com.vf.sincerityfinance.weight.recyclerView.DefineLoadMoreView
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
+import com.zhpan.bannerview.BannerViewPager
+import com.zhpan.indicator.enums.IndicatorSlideMode
 import me.hgj.jetpackmvvm.base.appContext
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.EmptyCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.ErrorCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.LoadingCallback
 import me.hgj.jetpackmvvm.ext.util.toHtml
-import net.lucode.hackware.magicindicator.MagicIndicator
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
+
 
 
 /**
@@ -132,6 +132,63 @@ fun SwipeRecyclerView.initFooter(loadmoreListener: SwipeRecyclerView.LoadMoreLis
     }
     return footerView
 }
+
+/**
+ * @des banner 如果需要更换动画 改Int值就行
+ * * @receiver BannerViewPager<Int>
+ * @param int Int
+ * @param mViewPager BannerViewPager<Int>
+ * @param list List<T>
+ * @param lifecycleRegistry LifecycleRegistry
+ * @return Unit
+ */
+fun BannerViewPager<Int>.init(int: Int, mViewPager:BannerViewPager<Int>,lifecycleRegistry: LifecycleRegistry){
+    mViewPager
+        .setIndicatorSlideMode(IndicatorSlideMode.WORM)
+        .setIndicatorSliderColor(
+            resources.getColor(R.color.gray_1),
+            resources.getColor(R.color.tkx_like)
+        )
+        .setIndicatorStyle(1)
+        .setIndicatorSliderRadius(
+            resources.getDimensionPixelOffset(R.dimen.dp_4),
+            resources.getDimensionPixelOffset(R.dimen.dp_4)
+        )
+        .setLifecycleRegistry(lifecycleRegistry)
+//            .setOnPageClickListener { view: View, position: Int ->
+//                pageClick(
+//                    view,
+//                    position
+//                )
+//            }
+        .setAdapter(ViewBindingSampleAdapter(resources.getDimensionPixelOffset(R.dimen.dp_8)))
+        .setInterval(5000)
+    //要改banner样式直接换pagestyle即可 默认五种
+    mViewPager.let {
+        setPageMargin(resources.getDimensionPixelOffset(R.dimen.dp_15))
+        setRevealWidth(resources.getDimensionPixelOffset(R.dimen.dp_10))
+        setPageStyle(int)
+        create(SettingUtil.getPicList(5))
+    }
+
+
+}
+
+///**
+// * banner图的点击触发方法
+// * @param view View
+// * @param position Int
+// * @return Unit
+// */
+//private fun pageClick(view: View, position: Int) {
+//    if (position != mViewPager!!.currentItem) {
+//        mViewPager!!.setCurrentItem(position, true)
+//    }
+//    ToastUtils.showShort("position:$position")
+//}
+
+
+
 
 fun RecyclerView.initFloatBtn(floatbtn: FloatingActionButton) {
     //监听recyclerview滑动到顶部的时候，需要把向上返回顶部的按钮隐藏
@@ -314,7 +371,7 @@ fun ViewPager2.init(
 
 fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
     //是否可滑动
-    this.isUserInputEnabled = false
+    this.isUserInputEnabled = true
     this.offscreenPageLimit = 3
     //设置适配器
     adapter = object : FragmentStateAdapter(fragment) {
@@ -343,8 +400,8 @@ fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): Bo
     enableAnimation(true)
     enableShiftingMode(true)
     enableItemShiftingMode(false)
-    itemIconTintList = SettingUtil.getColorStateList(SettingUtil.getColor(appContext))
-    itemTextColor = SettingUtil.getColorStateList(appContext)
+    itemIconTintList = SettingUtil.getColorStateList(resources.getColor(R.color.colorAccent))
+    itemTextColor = SettingUtil.getColorStateList(resources.getColor(R.color.colorAccent))
     setTextSize(12F)
     setOnNavigationItemSelectedListener {
         navigationItemSelectedAction.invoke(it.itemId)

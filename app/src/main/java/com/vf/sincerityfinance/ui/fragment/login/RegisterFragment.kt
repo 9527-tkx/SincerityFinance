@@ -16,7 +16,7 @@ import me.hgj.jetpackmvvm.ext.nav
 /**
  * @program: SincerityFinance
  *
- * @description:
+ * @description: 注册
  *
  * @author: tkx
  *
