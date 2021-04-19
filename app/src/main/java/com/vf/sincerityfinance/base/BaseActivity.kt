@@ -2,6 +2,7 @@ package com.vf.sincerityfinance.base
 
 import android.os.Bundle
 import androidx.databinding.ViewDataBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gyf.immersionbar.ImmersionBar
 import me.hgj.jetpackmvvm.base.activity.BaseVmDbActivity
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
@@ -15,7 +16,7 @@ import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
  *
  * @create: 2021-04-01 17:29
  **/
-open class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbActivity<VM, DB>() {
+abstract class BaseActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbActivity<VM, DB>() {
 
     /**
      * 创建liveData观察者

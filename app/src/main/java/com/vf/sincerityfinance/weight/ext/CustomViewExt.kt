@@ -2,7 +2,8 @@ package com.vf.sincerityfinance.weight.ext
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
+import android.view.MenuItem
+import androidx.navigation.ui.NavigationUI
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
@@ -13,20 +14,20 @@ import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleRegistry
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.airbnb.lottie.LottieDrawable
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.adapter.ViewBindingSampleAdapter
-import com.vf.sincerityfinance.ui.fragment.home.HomeFragment
-import com.vf.sincerityfinance.ui.fragment.me.MeFragment
-import com.vf.sincerityfinance.ui.fragment.project.ProjectFragment
 import com.vf.sincerityfinance.utils.SettingUtil
 import com.vf.sincerityfinance.weight.recyclerView.DefineLoadMoreView
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
@@ -37,7 +38,6 @@ import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.EmptyCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.ErrorCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.LoadingCallback
 import me.hgj.jetpackmvvm.ext.util.toHtml
-
 
 
 /**
@@ -142,36 +142,40 @@ fun SwipeRecyclerView.initFooter(loadmoreListener: SwipeRecyclerView.LoadMoreLis
  * @param lifecycleRegistry LifecycleRegistry
  * @return Unit
  */
-fun BannerViewPager<Int>.init(int: Int, mViewPager:BannerViewPager<Int>,lifecycleRegistry: LifecycleRegistry){
-    mViewPager
-        .setIndicatorSlideMode(IndicatorSlideMode.WORM)
-        .setIndicatorSliderColor(
+fun BannerViewPager<Int>.init(
+    int: Int,
+    mViewPager: BannerViewPager<Int>,
+    lifecycleRegistry: LifecycleRegistry
+) {
+    with(mViewPager) {
+        setIndicatorSlideMode(IndicatorSlideMode.WORM)
+        setIndicatorSliderColor(
             resources.getColor(R.color.gray_1),
             resources.getColor(R.color.tkx_like)
         )
-        .setIndicatorStyle(1)
-        .setIndicatorSliderRadius(
+        setIndicatorStyle(1)
+        setIndicatorSliderRadius(
             resources.getDimensionPixelOffset(R.dimen.dp_4),
             resources.getDimensionPixelOffset(R.dimen.dp_4)
         )
-        .setLifecycleRegistry(lifecycleRegistry)
+        setLifecycleRegistry(lifecycleRegistry)
 //            .setOnPageClickListener { view: View, position: Int ->
 //                pageClick(
 //                    view,
 //                    position
 //                )
 //            }
-        .setAdapter(ViewBindingSampleAdapter(resources.getDimensionPixelOffset(R.dimen.dp_8)))
-        .setInterval(5000)
-    //要改banner样式直接换pagestyle即可 默认五种
-    mViewPager.let {
+        setAdapter(ViewBindingSampleAdapter(resources.getDimensionPixelOffset(R.dimen.dp_8)))
+        setInterval(5000)
+        //要改banner样式直接换pagestyle即可 默认五种
+
         setPageMargin(resources.getDimensionPixelOffset(R.dimen.dp_15))
         setRevealWidth(resources.getDimensionPixelOffset(R.dimen.dp_10))
         setPageStyle(int)
         create(SettingUtil.getPicList(5))
+
+
     }
-
-
 }
 
 ///**
@@ -186,8 +190,6 @@ fun BannerViewPager<Int>.init(int: Int, mViewPager:BannerViewPager<Int>,lifecycl
 //    }
 //    ToastUtils.showShort("position:$position")
 //}
-
-
 
 
 fun RecyclerView.initFloatBtn(floatbtn: FloatingActionButton) {
@@ -369,44 +371,46 @@ fun ViewPager2.init(
     return this
 }
 
-fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
-    //是否可滑动
-    this.isUserInputEnabled = true
-    this.offscreenPageLimit = 3
-    //设置适配器
-    adapter = object : FragmentStateAdapter(fragment) {
-        override fun createFragment(position: Int): Fragment {
-            when (position) {
-                0 -> {
-                    return HomeFragment()
-                }
-                1 -> {
-                    return ProjectFragment()
-                }
-                2 -> {
-                    return MeFragment()
-                }
-                else -> {
-                    return HomeFragment()
-                }
-            }
-        }
-        override fun getItemCount() = 3
-    }
-    return this
-}
-
-fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): BottomNavigationViewEx {
-    enableAnimation(true)
-    enableShiftingMode(true)
-    enableItemShiftingMode(false)
-    itemIconTintList = SettingUtil.getColorStateList(resources.getColor(R.color.colorAccent))
+//fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
+//    //是否可滑动
+//    this.isUserInputEnabled = false
+//    this.offscreenPageLimit = 3
+//    //设置适配器
+//    adapter = object : FragmentStateAdapter(fragment) {
+//        override fun createFragment(position: Int): Fragment {
+//            when (position) {
+//                0 -> {
+//                    return HomeFragment()
+//                }
+//                1 -> {
+//                    return ProjectFragment()
+//                }
+//                2 -> {
+//                    return MeFragment()
+//                }
+//                else -> {
+//                    return HomeFragment()
+//                }
+//            }
+//        }
+//
+//        override fun getItemCount() = 3
+//    }
+//    return this
+//}
+/**
+ * @dec 来自tkx一天的封装(封装好了，但是没完全封装好)
+ * @receiver BottomNavigationView
+ * @param listener OnNavigationItemSelectedListener
+ * @param nav NavController
+ * @return BottomNavigationView
+ */
+fun BottomNavigationView.init(listener:BottomNavigationView.OnNavigationItemSelectedListener): BottomNavigationView {
+    itemIconTintList = SettingUtil.getColorStateList(resources.getColor(R.color.qmui_config_color_gray_6))
     itemTextColor = SettingUtil.getColorStateList(resources.getColor(R.color.colorAccent))
-    setTextSize(12F)
-    setOnNavigationItemSelectedListener {
-        navigationItemSelectedAction.invoke(it.itemId)
-        true
-    }
+    setOnNavigationItemSelectedListener(listener)
+
+
     return this
 }
 
@@ -416,12 +420,13 @@ fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): Bo
  * @receiver BottomNavigationViewEx
  * @param ids IntArray
  */
-fun BottomNavigationViewEx.interceptLongClick(vararg ids:Int) {
+fun BottomNavigationView.interceptLongClick(vararg ids: Int) {
     val bottomNavigationMenuView: ViewGroup = (this.getChildAt(0) as ViewGroup)
-    for (index in ids.indices){
-        bottomNavigationMenuView.getChildAt(index).findViewById<View>(ids[index]).setOnLongClickListener {
-            true
-        }
+    for (index in ids.indices) {
+        bottomNavigationMenuView.getChildAt(index).findViewById<View>(ids[index])
+            .setOnLongClickListener {
+                true
+            }
     }
 }
 

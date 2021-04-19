@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.vf.sincerityfinance.ui.fragment.home.HomeFragment"
+        android:label="@string/bottom_name1"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.vf.sincerityfinance.ui.fragment.project.ProjectFragment"
+        android:label="@string/bottom_name2"
+        tools:layout="@layout/fragment_project" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.vf.sincerityfinance.ui.fragment.me.MeFragment"
+        android:label="@string/bottom_name3"
+        tools:layout="@layout/fragment_me" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.vf.sincerityfinance.ui.fragment.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFrgment"
+            app:destination="@id/registerFrgment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFrgment"
+        android:name="com.vf.sincerityfinance.ui.fragment.login.RegisterFragment"
+        android:label="RegisterFrgment">
+
+        <action
+            android:id="@+id/action_registerFrgment_to_navigation_home"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/navigation_home" />
+
+        <action
+            android:id="@+id/action_registerFrgment_to_loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment" />
+
+
+
+    </fragment>
+</navigation>

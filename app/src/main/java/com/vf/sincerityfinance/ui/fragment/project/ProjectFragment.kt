@@ -34,6 +34,8 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
         mViewPager?.init(4, mViewPager!!, lifecycle as LifecycleRegistry)
 
 
+
+
     }
 
 
