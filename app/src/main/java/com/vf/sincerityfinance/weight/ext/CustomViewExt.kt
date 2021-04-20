@@ -15,12 +15,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleRegistry
 import androidx.navigation.NavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieDrawable
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
@@ -28,7 +30,10 @@ import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.adapter.ViewBindingSampleAdapter
+import com.vf.sincerityfinance.utils.AnimationUtil
 import com.vf.sincerityfinance.utils.SettingUtil
+import com.vf.sincerityfinance.utils.noselect
+import com.vf.sincerityfinance.utils.select
 import com.vf.sincerityfinance.weight.recyclerView.DefineLoadMoreView
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import com.zhpan.bannerview.BannerViewPager
@@ -399,36 +404,58 @@ fun ViewPager2.init(
 //    return this
 //}
 /**
- * @dec 来自tkx一天的封装(封装好了，但是没完全封装好)
+ * @dec 来自tkx一天的封装(封装好了，但是没完全封装好 )
  * @receiver BottomNavigationView
  * @param listener OnNavigationItemSelectedListener
  * @param nav NavController
  * @return BottomNavigationView
  */
-fun BottomNavigationView.init(listener:BottomNavigationView.OnNavigationItemSelectedListener): BottomNavigationView {
-    itemIconTintList = SettingUtil.getColorStateList(resources.getColor(R.color.qmui_config_color_gray_6))
+fun BottomNavigationView.init(
+    navController: NavController,
+    vararg ids: Int
+): BottomNavigationView {
+    itemIconTintList =
+        SettingUtil.getColorStateList(resources.getColor(R.color.qmui_config_color_gray_6))
     itemTextColor = SettingUtil.getColorStateList(resources.getColor(R.color.colorAccent))
-    setOnNavigationItemSelectedListener(listener)
-
+    setupWithNavController(navController)
+    setOnNavigationItemReselectedListener { }
+    // 点击item时动态加载动画以及fragment跟随图标切换
+    setOnNavigationItemSelectedListener {
+        it.icon = AnimationUtil.getLottieDrawable(it, this, ::select)
+        noselect(this, it)
+        var icon = it.icon as? LottieDrawable
+        icon?.apply {
+            playAnimation()
+        }
+        //避免重复生成fragment
+        if (it.isChecked) {
+            true
+        }
+        // 避免B返回到A重复创建
+        val popBackStack = navController.popBackStack(it.itemId, false)
+        if (popBackStack) {
+            // 已创建
+            popBackStack
+        } else {
+            // 未创建
+            NavigationUI.onNavDestinationSelected(
+                it, navController
+            )
+        }
+    }
+    //拦截BottomNavigation长按事件 防止长按时出现Toast ---- 追求完美的大屌同事提的bug
+    val BottomNavigationMenuView: ViewGroup = (this.getChildAt(0) as ViewGroup)
+    for (index in ids.indices) {
+        BottomNavigationMenuView.getChildAt(index).findViewById<View>(ids[index])
+            .setOnLongClickListener {
+                true
+            }
+    }
 
     return this
 }
 
 
-/**
- * 拦截BottomNavigation长按事件 防止长按时出现Toast ---- 追求完美的大屌群友提的bug
- * @receiver BottomNavigationViewEx
- * @param ids IntArray
- */
-fun BottomNavigationView.interceptLongClick(vararg ids: Int) {
-    val bottomNavigationMenuView: ViewGroup = (this.getChildAt(0) as ViewGroup)
-    for (index in ids.indices) {
-        bottomNavigationMenuView.getChildAt(index).findViewById<View>(ids[index])
-            .setOnLongClickListener {
-                true
-            }
-    }
-}
 
 /**
  * 隐藏软键盘
