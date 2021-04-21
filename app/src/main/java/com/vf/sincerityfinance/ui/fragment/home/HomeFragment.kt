@@ -3,6 +3,7 @@ package com.vf.sincerityfinance.ui.fragment.home
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.kingja.loadsir.core.LoadService
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentHomeBinding
@@ -29,6 +30,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override fun layoutId() = R.layout.fragment_home
 
     override fun initView(savedInstanceState: Bundle?) {
+
 
 
 

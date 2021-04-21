@@ -2,8 +2,6 @@ package com.vf.sincerityfinance
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.Toast
 import android.widget.Toast.makeText
@@ -23,7 +21,6 @@ import com.vf.sincerityfinance.viewmodel.appViewModel
 import com.vf.sincerityfinance.viewmodel.vm.MainViewModel
 import com.vf.sincerityfinance.weight.ext.init
 import me.hgj.jetpackmvvm.network.manager.NetState
-
 /**
  * 主activity 就这一个activity其他fragment都靠它
  * @property exitTime Long
@@ -45,10 +42,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         QMUIStatusBarHelper.translucent(this)
         QMUIStatusBarHelper.setStatusBarLightMode(this)
         nav = Navigation.findNavController(this@MainActivity, nav_host_fragment)
-
         //初始化bottomView
         mDatabind.mainBottom.init(nav,navigation_home, navigation_dashboard,navigation_notifications)
-
         // 后退判断
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -72,23 +67,21 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             StatusBarUtil.setColor(this, it, 0)
         }
     }
-
     override fun createObserver() {
         appViewModel.appColor.observeInActivity(this, Observer {
             supportActionBar?.setBackgroundDrawable(ColorDrawable(it))
             StatusBarUtil.setColor(this, it, 0)
         })
     }
-
     /**
      * 示例，在Activity/Fragment中如果想监听网络变化，可重写onNetworkStateChanged该方法
      */
     override fun onNetworkStateChanged(netState: NetState) {
         super.onNetworkStateChanged(netState)
         if (netState.isSuccess) {
-            makeText(applicationContext, "我特么终于有网了啊!", Toast.LENGTH_SHORT).show()
+            makeText(applicationContext, "连上了", Toast.LENGTH_SHORT).show()
         } else {
-            makeText(applicationContext, "我特么怎么断网了!", Toast.LENGTH_SHORT).show()
+            makeText(applicationContext, "你断网了!", Toast.LENGTH_SHORT).show()
         }
     }
 
