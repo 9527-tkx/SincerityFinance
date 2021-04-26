@@ -6,6 +6,10 @@
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="done">完成</string>
+    <string name="morenotice">更多公告</string>
+    <string name="information">资料盒</string>
+    <string name="taxreturns">报税情况</string>
+
     <string name="setting_base">基本设置</string>
     <string name="setting_other">其他设置</string>
     <string name="setting_top">显示置顶文章</string>

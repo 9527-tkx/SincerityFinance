@@ -1,6 +1,9 @@
 package com.vf.sincerityfinance.utils
 
+import android.animation.ObjectAnimator
 import android.view.MenuItem
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import com.airbnb.lottie.LottieCompositionFactory
 import com.airbnb.lottie.LottieDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,9 +40,16 @@ object AnimationUtil {
             composition = result.value
         }
     }
+    val DURATION_300 = 400L
 
-
-
+    fun translationY(v: View, startFloat: Float, endFloat: Float, duration: Long?): ObjectAnimator {
+        val objectAnimator = ObjectAnimator.ofFloat(
+            v, "translationY", startFloat, endFloat
+        )
+        objectAnimator.interpolator = AccelerateDecelerateInterpolator()
+        duration?.let { objectAnimator.duration = it }
+        return objectAnimator
+    }
 
 
 }

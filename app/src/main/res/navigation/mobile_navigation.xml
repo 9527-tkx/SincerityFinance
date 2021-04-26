@@ -9,7 +9,46 @@
         android:id="@+id/navigation_home"
         android:name="com.vf.sincerityfinance.ui.fragment.home.HomeFragment"
         android:label="@string/bottom_name1"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_morenoticeFragment"
+            app:destination="@id/morenoticeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_home_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_home_to_taxreturnsFragment"
+            app:destination="@id/taxreturnsFragment"
+            app:enterAnim="@anim/push_bottom_in"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/morenoticeFragment"
+        android:name="com.vf.sincerityfinance.ui.fragment.MoreNoticeFragment"
+        android:label="@string/morenotice"
+        tools:layout="@layout/fragment_morenotice"/>
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.vf.sincerityfinance.ui.fragment.InformationBoxFragment"
+        android:label="@string/information"
+        tools:layout="@layout/fragment_informationbox"/>
+    <fragment
+        android:id="@+id/taxreturnsFragment"
+        android:name="com.vf.sincerityfinance.ui.fragment.TaxReturnsFragment"
+        android:label="@string/taxreturns"
+        tools:layout="@layout/fragment_taxreturns"/>
+
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -34,6 +73,7 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/registerFrgment"
         android:name="com.vf.sincerityfinance.ui.fragment.login.RegisterFragment"

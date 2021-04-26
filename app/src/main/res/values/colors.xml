@@ -22,7 +22,7 @@
     <color name="form_bg2">#FFFFFF</color>
     <color name="text_color1">#222222</color>
     <color name="transparent">#2000</color>
-
+    <color name="tran">#00313131</color>
     <color name="red">#FF5252</color>
 
     <color name="transparent_red">#88FF5252</color>

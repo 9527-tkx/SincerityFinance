@@ -1,10 +1,12 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="QMUICommon" parent="QMUI.Compat.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+
+        <!-- Base application theme. -->
+        <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+            <item name="colorPrimary">@color/white</item>
+            <item name="colorPrimaryDark">@color/white</item>
+            <item name="colorAccent">@color/white</item>
+        </style>
+
 
     <!--文本样式-->
     <style name="assets_text_style">

@@ -2,6 +2,7 @@ package com.vf.sincerityfinance.ui.fragment.project
 
 import android.os.Bundle
 import androidx.lifecycle.LifecycleRegistry
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentProjectBinding
@@ -32,6 +33,9 @@ class ProjectFragment : BaseFragment<ProjectViewModel, FragmentProjectBinding>()
         mViewPager = view?.findViewById(R.id.banner_view)
         //使用kotlin的扩展函数封装一行代码实现banner图轮播
         mViewPager?.init(4, mViewPager!!, lifecycle as LifecycleRegistry)
+        QMUIStatusBarHelper.translucent(this.activity)
+        QMUIStatusBarHelper.setStatusBarLightMode(this.activity)
+
 
 
 

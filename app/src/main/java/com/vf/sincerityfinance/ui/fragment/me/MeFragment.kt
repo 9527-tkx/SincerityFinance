@@ -1,6 +1,7 @@
 package com.vf.sincerityfinance.ui.fragment.me
 
 import android.os.Bundle
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentMeBinding
@@ -19,5 +20,7 @@ class MeFragment : BaseFragment<MeViewModel, FragmentMeBinding>() {
     override fun layoutId()=R.layout.fragment_me
 
     override fun initView(savedInstanceState: Bundle?) {
+        QMUIStatusBarHelper.translucent(this.activity)
+        QMUIStatusBarHelper.setStatusBarLightMode(this.activity)
     }
 }
