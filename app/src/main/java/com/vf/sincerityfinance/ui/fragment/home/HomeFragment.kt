@@ -55,6 +55,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 nav().navigateAction(R.id.action_navigation_home_to_taxreturnsFragment)
             }
         }
+        fab.run {
+            onClick {
+
+            }
+        }
 
 
     }

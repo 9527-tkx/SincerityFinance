@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.qmuiteam.qmui.kotlin.onClick
 import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.base.BaseFragment
 import com.vf.sincerityfinance.databinding.FragmentLoginBinding
@@ -12,6 +13,7 @@ import com.vf.sincerityfinance.viewmodel.appViewModel
 import com.vf.sincerityfinance.viewmodel.vm.LoginRegisterViewModel
 import com.vf.sincerityfinance.viewmodel.request.RequestLoginRegisterViewModel
 import com.vf.sincerityfinance.weight.ext.*
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import me.hgj.jetpackmvvm.ext.parseState
 
@@ -31,11 +33,13 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
     override fun layoutId() = R.layout.fragment_login
 
     override fun initView(savedInstanceState: Bundle?) {
-        mDatabind.viewmodel = mViewModel
-        mDatabind.click = ProxyClick()
-        toolbar.initClose("注册") {
-            nav().navigateUp()
+
+        bt_login.run {
+            onClick {
+                nav().navigateAction(R.id.action_loginFragment_to_navigation_home)
+            }
         }
+
     }
 
 
@@ -75,7 +79,7 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
 
         fun goRegister() {
             hideSoftKeyboard(activity)
-            nav().navigateAction(R.id.action_loginFragment_to_registerFrgment)
+            nav().navigateAction(R.id.action_loginFragment_to_navigation_home)
         }
 
         var onCheckedChangeListener =

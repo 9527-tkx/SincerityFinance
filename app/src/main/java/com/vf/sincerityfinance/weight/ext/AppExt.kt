@@ -11,6 +11,7 @@ import com.afollestad.materialdialogs.WhichButton
 import com.afollestad.materialdialogs.actions.getActionButton
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.blankj.utilcode.util.ToastUtils
+import com.vf.sincerityfinance.R
 import com.vf.sincerityfinance.utils.CacheUtil
 import com.vf.sincerityfinance.utils.SettingUtil
 import java.io.BufferedReader
@@ -143,7 +144,7 @@ fun NavController.jumpByLogin(action: (NavController) -> Unit) {
     if (CacheUtil.isLogin()) {
         action(this)
     } else {
-//        this.navigateAction(R.id.action_to_loginFragment)
+        this.navigateAction(R.id.action_to_loginFragment)
     }
 }
 

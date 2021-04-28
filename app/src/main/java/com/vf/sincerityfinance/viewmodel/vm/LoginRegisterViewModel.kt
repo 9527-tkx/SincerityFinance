@@ -28,33 +28,33 @@ class LoginRegisterViewModel : BaseViewModel() {
 
 
     //用户名清除按钮是否显示   不要在 xml 中写逻辑 所以逻辑判断放在这里
-    var clearVisible = object :ObservableInt(username){
+    var clearVisible = object : ObservableInt(username) {
         override fun get(): Int {
-            return if(username.get().isEmpty()){
+            return if (username.get().isEmpty()) {
                 View.GONE
-            }else{
+            } else {
                 View.VISIBLE
             }
         }
     }
 
     //密码显示按钮是否显示   不要在 xml 中写逻辑 所以逻辑判断放在这里
-    var passwordVisible = object :ObservableInt(password){
+    var passwordVisible = object : ObservableInt(password) {
         override fun get(): Int {
-            return if(password.get().isEmpty()){
+            return if (password.get().isEmpty()) {
                 View.GONE
-            }else{
+            } else {
                 View.VISIBLE
             }
         }
     }
 
     //密码显示按钮是否显示   不要在 xml 中写逻辑 所以逻辑判断放在这里
-    var passwordVisible2 = object :ObservableInt(password2){
+    var passwordVisible2 = object : ObservableInt(password2) {
         override fun get(): Int {
-            return if(password2.get().isEmpty()){
+            return if (password2.get().isEmpty()) {
                 View.GONE
-            }else{
+            } else {
                 View.VISIBLE
             }
         }

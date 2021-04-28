@@ -9,6 +9,8 @@
     <string name="morenotice">更多公告</string>
     <string name="information">资料盒</string>
     <string name="taxreturns">报税情况</string>
+    <string name="changeCompany">更改公司</string>
+    <string name="settings">设置</string>
 
     <string name="setting_base">基本设置</string>
     <string name="setting_other">其他设置</string>
