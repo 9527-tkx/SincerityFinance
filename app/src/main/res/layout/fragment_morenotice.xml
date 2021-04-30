@@ -9,12 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/form_bg"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:background="@color/white"/>
+            android:background="@color/white" />
+
         <RelativeLayout
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -28,27 +29,69 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="0dp"
-                android:gravity="center"
-                >
+                android:gravity="center">
 
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
                     android:src="@mipmap/iv_back" />
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <RelativeLayout
+                android:id="@+id/rl_check1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:text="企业动态"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal" />
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="250dp"
+                android:background="@mipmap/icon_check1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:text="企业动态"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:text="企业公告" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_check2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="250dp"
+                android:background="@mipmap/icon_check2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:text="企业公告"
+                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:text="企业动态"
+                    android:textColor="@color/white"/>
+
+            </RelativeLayout>
 
 
         </RelativeLayout>

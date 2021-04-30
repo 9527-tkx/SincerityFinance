@@ -54,7 +54,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         Beta.checkUpgrade(false, true)
         //沉浸式
         nav = Navigation.findNavController(this@MainActivity, nav_host_fragment)
-        nav.jumpByLogin{}
+        nav.jumpByLogin {}
 
         //初始化bottomView
         mDatabind.mainBottom.init(
@@ -66,7 +66,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         // 后退判断
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (nav.currentDestination != null && nav.currentDestination!!.id != navigation_home && nav.currentDestination!!.id != loginFragment ) {
+                if (nav.currentDestination != null && nav.currentDestination!!.id != navigation_home && nav.currentDestination!!.id != loginFragment) {
                     //如果当前界面不是主页，那么直接调用返回即可
                     nav.navigateUp()
                 } else {

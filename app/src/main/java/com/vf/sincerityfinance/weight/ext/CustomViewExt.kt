@@ -410,12 +410,8 @@ fun ViewPager2.init(
  * @param nav NavController
  * @return BottomNavigationView
  */
-fun BottomNavigationView.init(
-    navController: NavController,
-    vararg ids: Int
-): BottomNavigationView {
-    itemIconTintList =
-        SettingUtil.getColorStateList(resources.getColor(R.color.qmui_config_color_gray_6))
+fun BottomNavigationView.init(navController: NavController, vararg ids: Int): BottomNavigationView {
+    itemIconTintList = SettingUtil.getColorStateList(resources.getColor(R.color.qmui_config_color_gray_6))
     itemTextColor = SettingUtil.getColorStateList(resources.getColor(R.color.colorAccent))
     setupWithNavController(navController)
     setOnNavigationItemReselectedListener { }

@@ -23,7 +23,8 @@ import kotlinx.android.synthetic.main.fragment_me.*
  * @create: 2021-04-06 17:00
  **/
 class MeFragment : BaseFragment<MeViewModel, FragmentMeBinding>() {
-    override fun layoutId()=R.layout.fragment_me
+    
+    override fun layoutId() = R.layout.fragment_me
 
     override fun initView(savedInstanceState: Bundle?) {
         QMUIStatusBarHelper.translucent(this.activity)

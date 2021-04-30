@@ -1,6 +1,7 @@
 package com.vf.sincerityfinance.ui.fragment
 
 import android.os.Bundle
+import android.view.View
 import com.qmuiteam.qmui.kotlin.onClick
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.vf.sincerityfinance.R
@@ -9,6 +10,7 @@ import com.vf.sincerityfinance.databinding.FragmentMorenoticeBinding
 import com.vf.sincerityfinance.viewmodel.vm.MoreNoticeViewModel
 import com.vf.sincerityfinance.weight.ext.nav
 import kotlinx.android.synthetic.main.fragment_morenotice.*
+import me.hgj.jetpackmvvm.ext.view.gone
 
 /**
  * @program: SincerityFinance
@@ -30,6 +32,14 @@ class MoreNoticeFragment : BaseFragment<MoreNoticeViewModel, FragmentMorenoticeB
             onClick {
                 nav().navigateUp()
             }
+        }
+        rl_check1.onClick {
+            it.visibility=View.GONE
+            rl_check2.visibility=View.VISIBLE
+        }
+        rl_check2.onClick {
+            it.visibility=View.GONE
+            rl_check1.visibility=View.VISIBLE
         }
     }
 }
